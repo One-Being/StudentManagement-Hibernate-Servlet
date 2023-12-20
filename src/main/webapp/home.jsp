@@ -8,119 +8,37 @@
 <%@page import="java.io.IOException"%>
 <%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Student Details</title>
-    <style>
-        html, body {
-            height: 100%;
-        }
-
-        body {
-            margin: 0;
-            background: linear-gradient(45deg, #49a09d, #5f2c82);
-            font-family: sans-serif;
-            font-weight: 100;
-        }
-
-        .container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        table {
-            width: 800px;
-            border-collapse: collapse;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-
-        th, td {
-            padding: 15px;
-            background-color: rgba(255,255,255,0.2);
-            color: #fff;
-        }
-
-        th {
-            text-align: left;
-        }
-
-        thead {
-            th {
-                background-color: #55608f;
-                text-transform: uppercase;
-            }
-        }
-
-        tbody {
-            tr {
-                &:hover {
-                    background-color: rgba(255,255,255,0.3);
-                }
-            }
-            td {
-                position: relative;
-                &:hover {
-                    &:before {
-                        content: "";
-                        position: absolute;
-                        left: 0;
-                        right: 0;
-                        top: -9999px;
-                        bottom: -9999px;
-                        background-color: rgba(255,255,255,0.2);
-                        z-index: -1;
-                    }
-                }
-            }
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        button {
-            padding: 10px;
-            background-color: rgb(82,113,146);
-            color: white;
-        }
-        #al{
-        	position: absolute;
-        	left: 1270px;
-        	
-        }
-    </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
     <%
-        List<Student> students = (List<Student>) request.getAttribute("students");
-    %>
-	 <div id="al">
-            <a href="logout"><button>Logout</button></a>
-        </div>
-    <div class="container">
-        <table align="center">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Password</th>
-                    <th>Location</th>
-                    <th>Phoneno</th>
-                    <th>Email</th>
-                    <th>Image</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                    <th>Download PDF</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%
+    List<Student> students = (List<Student>) request.getAttribute("students");
+%>
+ <div id="al">
+        <a href="logout"><button>Logout</button></a>
+    </div>
+    <h1>student table</h1>
+    <table class="rwd-table">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Password</th>
+        <th>Location</th>
+        <th>Phoneno</th>
+        <th>Email</th>
+        <th>Image</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Download PDF</th>
+      </tr>
+      <%
                     for(Student student: students) {
                 %>
                 <tr>
@@ -138,9 +56,9 @@
                 <%
                     }
                 %>
-            </tbody>
-        </table>
-       
-    </div>
+      
+    </table>
+    
+   
 </body>
 </html>
